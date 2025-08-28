@@ -11,9 +11,19 @@ variable "vpc_cidr_network" {
     description = "please provide your vpc cidr network"
 }
 
-variable "az" {
-  type = list 
+variable "public_subnet_details" {
+   type = map(object({ 
+    cidr_block  = string
+    availability_zone = string
+    vpc_id = string
+    map_public_ip_on_launch = bool
+   }))
 }
-variable "subnet_cidr" {
-  type = list 
+
+variable "private_subnet_details" {
+   type = map(object({ 
+    cidr_block  = string
+    availability_zone = string
+    vpc_id = string
+   }))
 }
