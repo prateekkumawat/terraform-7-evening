@@ -1,0 +1,11 @@
+infraenv = "pp"
+clientname = "project"
+subnet1_id = "subnet-0171fe3b7195d419b"
+subnet2_id = "subnet-03ec10726186cf5ca"
+vpc_id = "vpc-00c482324c409f4d6"
+private_route_table_id = "rtb-0a764038f41f50332"
+public_route_table_id = "rtb-04c608d7c077de922"
+internet_gateway_id = "igw-01a335c3a581add28"
+subnet_az = ["ap-south-1a", "ap-south-1b"]
+aws_region = "ap-south-1"
+subnet_cidr =  ["10.0.16.0/20", "10.0.32.0/20"]
