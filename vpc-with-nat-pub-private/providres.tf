@@ -5,6 +5,11 @@ terraform {
       version = "6.10.0"
     }
   }
+  backend "s3" {
+    bucket = "snoooooow"
+    region = "ap-south-1"
+    key    = "evening7pm.tfstate"
+  }
 }
 
 provider "aws" {
