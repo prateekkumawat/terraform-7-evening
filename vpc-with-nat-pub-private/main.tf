@@ -15,15 +15,15 @@ resource "aws_subnet" "this1publicsubnet" {
   }
 }
 
-# resource "aws_subnet" "this1privatesubnet" {
-#  vpc_id = aws_vpc.this1.id 
-#  cidr_block = var.subnet_cidr[1]
-#  availability_zone = var.subnet_az[1]
-#  map_public_ip_on_launch = false
-#   tags = {
-#     Name = "${var.clientname}-${var.infraenv}-priv-subnet1"
-#   }
-# }
+resource "aws_subnet" "this1privatesubnet" {
+ vpc_id = aws_vpc.this1.id 
+ cidr_block = var.subnet_cidr[1]
+ availability_zone = var.subnet_az[1]
+ map_public_ip_on_launch = false
+  tags = {
+    Name = "${var.clientname}-${var.infraenv}-priv-subnet1"
+  }
+}
 
 resource "aws_internet_gateway" "this1igw" {
   vpc_id = aws_vpc.this1.id 
@@ -74,7 +74,7 @@ resource "aws_route_table_association" "assosiationpublic1" {
   route_table_id = aws_route_table.this1pubrt.id 
 }
 
-# resource "aws_route_table_association" "assosiationprivate1" {
-#   subnet_id = aws_subnet.this1privatesubnet.id 
-#   route_table_id = aws_route_table.this1privrt.id
-# }
+resource "aws_route_table_association" "assosiationprivate1" {
+  subnet_id = aws_subnet.this1privatesubnet.id 
+  route_table_id = aws_route_table.this1privrt.id
+}
